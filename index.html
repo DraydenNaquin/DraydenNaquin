@@ -1,18 +1,137 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
-  <head>
-    <title>Title</title>
-    <!-- Load CSS files -->
-    <link rel="stylesheet" type="text/css" href="index.css">
+   <head>
+       <title>Drayden's Masterpiece</title>
+       <style>
+        body {
+            background-image: url("https://i.ytimg.com/vi/r1cuHdYMZ6s/maxresdefault.jpg"); /* The image used */
+            background-color: #cccccc; /* Used if the image is unavailable */
+            height: 700px; /* You must set a specified height */
+            background-position: center; /* Center the image */
+            background-repeat: no-repeat; /* Do not repeat the image */
+            background-size: cover; /* Resize the background image to cover the entire container */
+
+        }
+        
+        #all-contents {
+            max-width: 800px;
+            margin: auto;
+        }
     
-    <!-- Load JavaScript files -->
-    <script src="jquery.min.js"></script>
-    <script src="index.js"></script>
-  </head>
-  
-  <body>
-    <div id='board'>
-      <div id='gameItem'></div>
-    </div>
-  </body>
+        /* navigation menu */
+        nav {
+            background: rgb(255, 242, 0);
+            margin: 0 auto;
+            display: flex;
+            padding: 10px;
+        }
+        nav h1 {
+            display: flex;
+            align-items: center;
+            color: rgb(255, 255, 255);
+            flex: 1;
+            margin: 0;
+        }
+        nav ul {
+            list-style-image: none;
+        }
+        nav li {
+            display: inline-block;
+            padding: 0 10px;
+        }
+        nav a {
+            text-decoration: none;
+            color: rgb(0, 0, 0);
+        }
+    
+        /* main container area beneath menu */
+        main {
+            background: rgb(255, 255, 255);
+            display: flex;
+            border-radius: 30px;
+           
+        }
+        .sidebar {
+            margin-right: 25px;
+            padding: 10px;
+            border-radius: 30px;
+        
+        }
+        .sidebar img {
+            width: 200px;
+            border-radius: 30px;
+        
+        }
+        .content {
+            flex: 1;
+            padding: 15px;
+        }
+        h2, h3 {
+            margin: 0px;
+        }
+        .mygroup {
+           font-family:comic sans MS;
+           color:black
+        }
+        #box {
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 25px;
+}
+
+#box {
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 30px;
+}
+    </style>
+   </head>
+   <body>
+     <div>
+        <nav id="box">
+         <!-- Visible HTML elements GO HERE  -->
+            <h1 class="mygroup" >Drayden's Masterpiece</h1>
+            <ul>
+                <li>
+                  <a class="mygroup" href="index.html" > Home </a>
+                </li>
+                <li>
+                  <a class="mygroup" href="portfolio.html" > Portfolio </a>
+                </li>
+            </ul>
+        </nav>
+        <main>
+            <main>
+                <div class="sidebar">
+                    <div>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTC-yGyQY8gkU7yPJ34RCJre5GtZbXF-8bPRcne4BEnOw&s">
+                        </div>          
+                </div>
+                <div class="content">
+                    <div>
+                        <h2 class="mygroup">Drayden</h2>
+                        <p class="mygroup">Student at Hanville High</p>
+                        <!-- Interests section -->
+                    
+                     </div>
+                    <div id="interests">
+                        <h3 class="mygroup">Interests</h3>
+                        <ul>
+                            <li class="mygroup">Gaming</li>
+                            <li class="mygroup">Star Wars</li>
+                            <li class="mygroup">Art</li>
+                        </ul>
+                    </div>
+                </div>
+            </main>
+
+
+
+
+   <!-- Sidebar section -->
+    
+</div>
+<!-- Content section -->
+
+        </main>
+     </div>
+   </body>
 </html>
