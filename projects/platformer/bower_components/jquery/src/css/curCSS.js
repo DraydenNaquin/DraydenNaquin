@@ -10,7 +10,6 @@ define( [
 function curCSS( elem, name, computed ) {
 	var width, minWidth, maxWidth, ret,
 		style = elem.style;
-
 	computed = computed || getStyles( elem );
 	ret = computed ? computed.getPropertyValue( name ) || computed[ name ] : undefined;
 
