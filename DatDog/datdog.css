@@ -4,6 +4,7 @@ h1 {
   animation-duration: 4s;
   animation-iteration-count: infinite;
   border-radius: 50px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 table,
@@ -16,6 +17,7 @@ td {
 
 main {
   align-items: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 body {
@@ -39,6 +41,7 @@ nav {
   border-radius: 50px;
   padding: 20px;
   margin-bottom: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 nav:hover {
