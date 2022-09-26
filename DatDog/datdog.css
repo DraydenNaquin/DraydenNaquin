@@ -1,0 +1,55 @@
+h1 {
+    text-align: center;
+    animation-name: example;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+table,
+th,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    background-color: aliceblue;
+}
+body {
+    background-color: cornsilk;
+    padding:25px 300px;
+    box-sizing: border-box;
+  
+
+}
+#main-content {
+    background-color: rgb(252, 242, 203);
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+nav:hover {
+   color: bisque;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+a:hover {
+    color: rgb(196, 160, 115);
+  
+  }
+  a:active {
+    background-color: yellow;
+  }
+  a:visited {
+    color: rgb(66, 3, 87);
+  }
+  .datdog {
+    font-family: garamond;
+  }
+  #datTitle {
+    font-family: garamond;
+  }
+  @keyframes example {
+    0%   {background-color:rgb(186, 153, 86); left:0px; top:0px;}
+    25%  {background-color:rgb(171, 141, 20); left:200px; top:0px;}
+    50%  {background-color:rgb(194, 155, 15); left:200px; top:200px;}
+    75%  {background-color:rgb(170, 153, 20); left:0px; top:200px;}
+    100% {background-color:rgb(126, 97, 16); left:0px; top:0px;}
+  }

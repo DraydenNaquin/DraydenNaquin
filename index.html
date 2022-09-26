@@ -1,146 +1,149 @@
 <!DOCTYPE HTML>
 <html>
-   <head>
-       <title>Drayden's Masterpiece</title>
-       <style>
-        body {
-            background-image: url("https://i.ytimg.com/vi/r1cuHdYMZ6s/maxresdefault.jpg"); /* The image used */
-            background-color: #cccccc; /* Used if the image is unavailable */
-            height: 700px; /* You must set a specified height */
-            background-position: center; /* Center the image */
-            background-repeat: repeat; /* Do not repeat the image */
-            background-size: cover; /* Resize the background image to cover the entire container */
 
+<head>
+    <title>Drayden's Masterpiece</title>
+    <style>
+        body {
+            background-image: url("https://i.ytimg.com/vi/r1cuHdYMZ6s/maxresdefault.jpg");
+            /* The image used */
+            background-color: #cccccc;
+            /* Used if the image is unavailable */
+            height: 700px;
+            /* You must set a specified height */
+            background-position: center;
+            /* Center the image */
+            background-repeat: repeat;
+            /* Do not repeat the image */
+            background-size: cover;
+            /* Resize the background image to cover the entire container */
+            padding:25px 300px;
+            box-sizing: border-box;
         }
-        
+
         #all-contents {
             max-width: 800px;
             margin: auto;
             margin: 0 auto;
             margin-bottom: 20px;
+            box-sizing: border-box;
         }
-    
+
         /* navigation menu */
         nav {
             background: rgb(255, 242, 0);
             margin: 0 auto;
             margin-bottom: 20px;
-            margin-right: 300px;
-            margin-left: 300px;
             display: flex;
             padding: 10px;
+            border-radius: 30px;
+            box-sizing: border-box;
         }
+
         nav h1 {
             display: flex;
             align-items: center;
             color: rgb(255, 255, 255);
             flex: 1;
-            margin: 0;
-            margin-bottom: 20px;
+            margin: 0 auto;
+            font-family: comic sans MS;
+            color: black;
+            box-sizing: border-box;
+
         }
+
         nav ul {
             list-style-image: none;
+            font-family: comic sans MS;
+            color: black;
         }
+
         nav li {
             display: inline-block;
             padding: 0 10px;
+            font-family: comic sans MS;
+            color: black;
         }
+
         nav a {
             text-decoration: none;
             color: rgb(0, 0, 0);
         }
-    
+
         /* main container area beneath menu */
         main {
             background: rgb(255, 255, 255);
             display: flex;
             border-radius: 30px;
-            margin-right: 300px;
-            margin-left: 300px;
         }
+
         .sidebar {
-            margin-right: 20px;
+
             padding: 10px;
             border-radius: 30px;
         }
+
         .sidebar img {
             width: 270px;
             border-radius: 30px;
-            margin-left: -310px;
         }
+
         .content {
             flex: 1;
-            padding: 0px;
-            margin-left: -100px;
-            margin-top: 35px;
+            border-radius: 30px;
+            font-family: comic sans MS;
+            color: black;
         }
-        h2, h3 {
-            margin: 0px;
-        }
-        .mygroup {
-           font-family:comic sans MS;
-           color:black
-        }
-        #box {
-  border: 2px solid rgb(0, 0, 0);
-  border-radius: 25px;
-}
 
-#box {
-  border: 2px solid rgb(0, 0, 0);
-  border-radius: 30px;
-}
+        h2,
+        h3 {
+            margin: 0 auto;
+        }
+
+        #interests {
+            border: 4px silver ridge;
     </style>
-   </head>
-   <body>
-     <div>
-        <nav id="box">
-         <!-- Visible HTML elements GO HERE  -->
-            <h1 class="mygroup" >Drayden's Masterpiece</h1>
-            <link rel="shortcut icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTC-yGyQY8gkU7yPJ34RCJre5GtZbXF-8bPRcne4BEnOw&s"/>
-            <ul>
-                <li>
-                  <a class="mygroup" href="index.html" > Home </a>
+</head>
+
+<body>
+    <div class="sidebar">
+        <nav id="nav">
+            <!-- Visible HTML elements GO HERE  -->
+            <h1>Drayden's Masterpiece</h1>
+            <link
+                href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTC-yGyQY8gkU7yPJ34RCJre5GtZbXF-8bPRcne4BEnOw&s" />
+            <ul id="nav-ul">
+                <li id="nav-li">
+                    <a href="index.html"> Home </a>
                 </li>
-                <li>
-                  <a class="mygroup" href="portfolio.html" > Portfolio </a>
+                <li id="nav-li">
+                    <a href="portfolio.html"> Portfolio </a>
                 </li>
             </ul>
         </nav>
-        <main>
-            <main>
-                <div class="sidebar">
-                    <div>
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTC-yGyQY8gkU7yPJ34RCJre5GtZbXF-8bPRcne4BEnOw&s">
-                        </div>          
-                </div>
-                <div class="content">
-                    <div>
-                        <h2 class="mygroup">Drayden</h2>
-                        <p class="mygroup">Student at Hanville High</p>
-                        <!-- Interests section -->
-                    
-                     </div>
-                    <div id="interests">
-                        <h3 class="mygroup">Interests</h3>
-                        <ul>
-                            <li class="mygroup">Gaming</li>
-                            <li class="mygroup">Star Wars</li>
-                            <li class="mygroup">Art</li>
-                        </ul>
-                    </div>
-                </div>
-            </main>
+    </div>
+    <main>
+        <!-- Sidebar section -->
+        <div id="all-contents" class="sidebar">
+                <img class="sidebar-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTC-yGyQY8gkU7yPJ34RCJre5GtZbXF-8bPRcne4BEnOw&s">
+            </div>
+        <div class="content">
+            <!-- Content section -->
+            <div>
+                <h2>Drayden</h2>
+                <p>Student at Hanville High</p>
+                <!-- Interests section -->
+            </div>
+            <div id="interests">
+                <h3>Interests</h3>
+                <ul>
+                    <li>Gaming</li>
+                    <li>Star Wars</li>
+                    <li>Art</li>
+                </ul>
+            </div>
+            </div>
+    </main>
+</body>
 
-
-
-
-   <!-- Sidebar section -->
-    
-</div>
-<!-- Content section -->
-
-        </main>
-     </div>
-   </body>
 </html>
