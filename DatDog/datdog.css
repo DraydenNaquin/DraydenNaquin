@@ -3,6 +3,7 @@ h1 {
   animation-name: example;
   animation-duration: 4s;
   animation-iteration-count: infinite;
+  border-radius: 50px;
 }
 
 table,
@@ -31,6 +32,15 @@ body {
   border-collapse: collapse;
 }
 
+nav {
+  animation-name: example;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  border-radius: 50px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
 nav:hover {
   color: bisque;
 }
@@ -41,7 +51,7 @@ a {
 }
 
 a:hover {
-  color: rgb(196, 160, 115);
+  color: bisque;
 
 }
 
