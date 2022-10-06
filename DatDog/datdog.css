@@ -45,27 +45,21 @@ nav {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-nav:hover {
-  color: bisque;
-}
-
 a {
   text-decoration: none;
   color: black;
 }
 
 a:hover {
-  color: bisque;
+  color: rgb(255, 255, 67);
 
 }
 
 a:active {
-  background-color: yellow;
+  color: blue;
 }
 
-a:visited {
-  color: rgb(66, 3, 87);
-}
+a:visited {}
 
 .datdog {
   font-family: garamond;
@@ -107,10 +101,18 @@ a:visited {
   }
 }
 
-img {width: 100%}
+img {
+  width: 100%
+}
 
 .logo {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 50px;
 
+}
+
+hr {
+  color: black;
+  padding: 3px;
+  background-color: black;
 }
