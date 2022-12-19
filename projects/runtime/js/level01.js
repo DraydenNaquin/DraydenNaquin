@@ -29,20 +29,39 @@ var level01 = function (window) {
         // BEGIN EDITING YOUR CODE HERE
         function createSawBlade(x, y) {
             var hitZoneSize = 45;
-            var damageFromObstacle = 10;
+            var damageFromObstacle = 40;
             var sawBladeHitZone = game.createObstacle(hitZoneSize, damageFromObstacle);
             sawBladeHitZone.x = x;
             sawBladeHitZone.y = y;
             game.addGameItem(sawBladeHitZone);
             var obstacleImage = draw.bitmap("img/nade.png");
             sawBladeHitZone.addChild(obstacleImage);
-            obstacleImage.x = x;
-            obstacleImage.y = y;
+            obstacleImage.x = -60;
+            obstacleImage.y = -55;
         }
-createSawBlade(200, 160);
-createSawBlade(120, 120);
-createSawBlade(400, 140);
+createSawBlade(800, 230);
+createSawBlade(520, 380);
+createSawBlade(1500, 307);
 
+var enemy = game.createGameItem("enemy", 25);
+var redSquare = draw.bitmap("img/pin2.png");
+redSquare.x = -25;
+redSquare.y = -25;
+enemy.addChild(redSquare);
+enemy.x = 1500;
+enemy.y = groundY - 60
+enemy.velocityX = -5;
+enemy.rotationalVelocity = 5;
+
+game.addGameItem(enemy);
+
+enemy.onPlayerCollision = function () {
+    game.changeIntegrity(-10)
+};
+enemy.onProjectileCollision = function () {
+    game.increaseScore(100);
+    enemy.fadeOut();
+};
         // DO NOT EDIT CODE BELOW HERE
     }
 };
