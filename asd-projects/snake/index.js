@@ -167,9 +167,9 @@ function hasHitWall() {
   return true;
  } else if (snake.head.column === COLUMNS + 1) {
   return true;
- } else if (snake.head.row === ROWS - 21) {
+ } else if (snake.head.row === ROWS - 22) {
   return true;
- } else if (snake.head.column === COLUMNS - 21) {
+ } else if (snake.head.column === COLUMNS - 22) {
   return true;
  } else {
   return false;
