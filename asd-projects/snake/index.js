@@ -287,7 +287,11 @@ function makeApple() {
  
    // position the apple on the screen
    repositionSquare(apple);
-}
+
+  
+    
+   }
+
 
 /* Create an HTML element for a snakeSquare using jQuery. Then, given a row and
  * column on the board, position it on the screen. Finally, add the new
