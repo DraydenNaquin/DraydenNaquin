@@ -9,7 +9,7 @@ body {
   width: 440px;
   height: 440px;
   border: 1px solid rgb(0, 0, 0);
-  background-image: url("img/grass.png");
+  background-image: url("img/grass.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -33,14 +33,14 @@ body {
 }
 
 #snake-head {
-  background-image: url("img/steve.png");
+  background-image: url("img/steve.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
 
 .apple {
-  background-image: url("img/apple.png");
+  background-image: url("img/apple.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
