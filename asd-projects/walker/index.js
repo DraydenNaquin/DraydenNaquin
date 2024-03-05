@@ -9,6 +9,13 @@ $(document).ready(runProgram); // wait for the HTML / CSS elements of the page t
      "positionY": 0,
      "speedY": 0,
    }
+
+   var walker2 = {
+    "positionX": 0,
+     "speedX": 0,
+     "positionY": 0,
+     "speedY": 0,
+   }
    
    //Key Code
   var KEY = {
@@ -17,6 +24,10 @@ $(document).ready(runProgram); // wait for the HTML / CSS elements of the page t
    "UP": 38,
    "RIGHT": 39,
    "DOWN": 40,
+   "W": 87,
+   "A": 65,
+   "S": 83,
+   "D": 68,
    };
 
 function runProgram(){
@@ -33,6 +44,7 @@ function runProgram(){
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
   $(document).on('keydown', handleKeyDown);                           // change 'eventType' to the type of event you want to handle
   $(document).on('keyup', handleKeyUp);
+
   ////////////////////////////////////////////////////////////////////////////////
   ///////////////////////// CORE LOGIC ///////////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
@@ -42,9 +54,12 @@ function runProgram(){
   by calling this function and executing the code inside.
   */
   function newFrame() {
-    repositionGameItem(); // update's the walker position based on its speed
-    wallCollision(); // prevent the walker from crossing the board 
-    redrawGameItem(); // redraw the walker at a new position
+    repositionGameItem(walker); // update's the walker position based on its speed
+    wallCollision(walker, "#walker"); // prevent the walker from crossing the board 
+    redrawGameItem(walker, "#walker", "left", "top");
+    repositionGameItem(walker2); // update's the walker position based on its speed
+    wallCollision(walker2, "#walker2"); // prevent the walker from crossing the board 
+    redrawGameItem(walker2, "#walker2", "right", "bottom"); // redraw the walker at a new position
   }
   
   /* 
@@ -69,15 +84,15 @@ function runProgram(){
 // SETUP...
 
 // This positions the walker depending on speed and position
-function repositionGameItem() {
-  walker.positionX += walker.speedX;
-  walker.positionY += walker.speedY;
+function repositionGameItem(walker0) {
+  walker0.positionX += walker0.speedX;
+  walker0.positionY += walker0.speedY;
 }
 
 // Redraws the walker to the new location depending on the position
-function redrawGameItem() {
-  $("#walker").css("left", walker.positionX);
-  $("#walker").css("top", walker.positionY);
+function redrawGameItem(walker0, walkerID, pos1, pos2) {
+  $(walkerID).css(pos1, walker0.positionX);
+  $(walkerID).css(pos2, walker0.positionY);
 }
 // CORE LOGIC...
 
@@ -87,16 +102,20 @@ function handleKeyDown(event) {
     console.log("enter pressed");
   } else if (event.which === KEY.LEFT) {
       walker.speedX = -5;
-      walker.speedY = 0; // Reset speedY to prevent diagonal movement
   } else if (event.which === KEY.RIGHT) {
       walker.speedX = 5;
-      walker.speedY = 0; // Reset speedY
   } else if (event.which === KEY.UP) {
       walker.speedY = -5;
-      walker.speedX = 0; // Reset speedX
   } else if (event.which === KEY.DOWN) {
       walker.speedY = 5;
-      walker.speedX = 0; // Reset speedX
+  } else if (event.which === KEY.A) {
+      walker2.speedX = -5;
+  } else if (event.which === KEY.D) {
+      walker2.speedX = 5;
+  } else if (event.which === KEY.W) {
+      walker2.speedY = -5;
+  } else if (event.which === KEY.S) {
+      walker2.speedY = 5;
   }
 }
 
@@ -105,10 +124,15 @@ function handleKeyUp(event) {
     walker.speedX = 0;
   } else if (event.which === KEY.UP || event.which === KEY.DOWN) {
     walker.speedY = 0;
+  } else if (event.which === KEY.A || event.which === KEY.D) {
+    walker2.speedX = 0;
+  } else if (event.which === KEY.W || event.which === KEY.S) {
+    walker2.speedY = 0;
   }
 }
 
-function wallCollision() {
+// used paramiters for reuse
+function wallCollision(walker0, walkerID) {
   // Get the dimensions of the board
   var boardWidth = $("#board").width();
   var boardHeight = $("#board").height();
@@ -116,21 +140,21 @@ function wallCollision() {
   // Calculate the boundaries of the board
   var leftWall = 0;
   var topWall = 0;
-  var rightWall = boardWidth - $("#walker").outerWidth(); // Subtract walker's width
-  var bottomWall = boardHeight - $("#walker").outerHeight();
+  var rightWall = boardWidth - $(walkerID).outerWidth(); // Subtract walker's width
+  var bottomWall = boardHeight - $(walkerID).outerHeight();
 
   // Check if the walker is about to move beyond the boundaries
   // Adjust walker's position if necessary
-  if (walker.positionX < leftWall) {
-    walker.positionX = leftWall;
+  if (walker0.positionX < leftWall) {
+    walker0.positionX = leftWall;
   }
-  if (walker.positionX > rightWall) {
-    walker.positionX = rightWall;
+  if (walker0.positionX > rightWall) {
+    walker0.positionX = rightWall;
   }
-  if (walker.positionY < topWall) {
-    walker.positionY = topWall;
+  if (walker0.positionY < topWall) {
+    walker0.positionY = topWall;
   }
-  if (walker.positionY > bottomWall) {
-    walker.positionY = bottomWall;
+  if (walker0.positionY > bottomWall) {
+    walker0.positionY = bottomWall;
   }
 }

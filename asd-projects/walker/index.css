@@ -4,14 +4,15 @@ body {
 }
 
 #board {
-  width: 440px;
-  height: 440px;
+  width: 600px;
+  height: 600px;
   border: 1px solid white;
   background-image: url("img/namic.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   position: relative;
+  border-radius: 10px;
 }
 
 #walker {
@@ -19,8 +20,8 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  width: 50px;
-  height: 50px;
+  width: 80px;
+  height: 80px;
   position: absolute;
   left: 100px; 
   top: 100px;  
@@ -32,10 +33,10 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  width: 50px;
-  height: 50px;
+  width: 80px;
+  height: 80px;
   position: absolute;
-  left: 390px; 
-  top: 390px;  
+  left: 260px; 
+  top: 260px;  
   border-radius: 50px;
 }
