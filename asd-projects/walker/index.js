@@ -55,11 +55,14 @@ function runProgram(){
   */
   function newFrame() {
     repositionGameItem(walker); // update's the walker position based on its speed
-    wallCollision(walker, "#walker"); // prevent the walker from crossing the board 
-    redrawGameItem(walker, "#walker", "left", "top");
     repositionGameItem(walker2); // update's the walker position based on its speed
+
+    redrawGameItem(walker, "#walker", "left", "top");
+    redrawGameItem(walker2, "#walker2", "left", "top"); // redraw the walker at a new position
+
+    wallCollision(walker, "#walker"); // prevent the walker from crossing the board 
     wallCollision(walker2, "#walker2"); // prevent the walker from crossing the board 
-    redrawGameItem(walker2, "#walker2", "right", "bottom"); // redraw the walker at a new position
+    
   }
   
   /* 
@@ -144,7 +147,6 @@ function wallCollision(walker0, walkerID) {
   var bottomWall = boardHeight - $(walkerID).outerHeight();
 
   // Check if the walker is about to move beyond the boundaries
-  // Adjust walker's position if necessary
   if (walker0.positionX < leftWall) {
     walker0.positionX = leftWall;
   }
