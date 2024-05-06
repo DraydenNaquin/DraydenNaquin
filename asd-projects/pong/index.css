@@ -39,10 +39,6 @@ body {
   left: 570px;
 }
 
-#scoreP1 {
-  color: rgb(255, 255, 255);
-}
-
-#scoreP2 {
+#score {
   color: rgb(255, 255, 255);
 }

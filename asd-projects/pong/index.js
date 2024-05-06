@@ -10,11 +10,15 @@ function runProgram(){
   // Constant Variables
   const FRAME_RATE = 60;
   const FRAMES_PER_SECOND_INTERVAL = 1000 / FRAME_RATE;
-  var randomNum = (Math.random() * 3 + 2) * (Math.random() > 0.5 ? -1 : 1);
+
   
   // Game Item Objects
 
+  var boardWidth = $("#board").width();
+  var boardHeight = $("#board").height();
   
+  
+
     //Key Code
     var KEY = {
       "ENTER": 13,
@@ -47,6 +51,8 @@ function runProgram(){
 var paddle1 = createItem("#leftPaddle", 0, 0);
 var paddle2 = createItem("#rightPaddle", 0, 0);
 var ball = createItem("#gameItem", 0, 0);
+var player1Score = 0;
+var player2Score = 0;
   // one-time setup
   let interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
   $(document).on('keydown', handleKeyDown);                           // change 'eventType' to the type of event you want to handle
@@ -67,6 +73,7 @@ var ball = createItem("#gameItem", 0, 0);
     wallCollision(paddle1, "#leftPaddle");
     wallCollision(paddle2, "#rightPaddle");
     moveBall(ball);
+    endBall(ball, "#gameItem");
   }
   
   /* 
@@ -82,34 +89,27 @@ var ball = createItem("#gameItem", 0, 0);
 
 
   function startBall() {
+    var randomNum = (Math.random() * 3 + 2) * (Math.random() > 0.5 ? -1 : 1);
     ball.x = 260;
     ball.y = 260;
-    ball.speedX = 2;
-    ball.speedY = 2;
+    ball.speedX = randomNum;
+    ball.speedY = randomNum;
   }
 
   function moveBall(bop) {
-    
-
-    const boardWidth = $("#board").width();
-    const boardHeight = $("#board").height();
-
-    $("#gameItem").css('left', bop.x);
     $("#gameItem").css('top', bop.y);
-
-    bop.x = bop.x + bop.speedX;
     bop.y = bop.y + bop.speedY;
-    
-    if (bop.x > boardWidth || bop.x < 0) {
-        bop.speedX = -bop.speedX;
-    } 
-    
     if (bop.y > boardHeight || bop.y < 0) {
         bop.speedY = -bop.speedY;
     }
 }
 
+function paddleCollision(gameItem, paddle, gameId) {
 
+}
+
+
+//makes things move
   function gameMovement(toy) {
     toy.x += toy.speedX;
     toy.y += toy.speedY;
@@ -117,50 +117,59 @@ var ball = createItem("#gameItem", 0, 0);
   $(toy.id).css("top", toy.y);
 }
 
+    //acts on keydown
   function handleKeyDown(event) {
-      if (event.which === KEY.UP) {
-        paddle2.speedY = -5;
-    } else if (event.which === KEY.DOWN) {
-        paddle2.speedY = 5;
-    } else if (event.which === KEY.W) {
-        paddle1.speedY = -5;
-    } else if (event.which === KEY.S) {
-        paddle1.speedY = 5;
+     if (event.which === KEY.UP) {
+        paddle2.speedY = -6;
+    } 
+     if (event.which === KEY.DOWN) {
+        paddle2.speedY = 6;
+    } 
+     if (event.which === KEY.W) {
+        paddle1.speedY = -6;
+    }
+     if (event.which === KEY.S) {
+        paddle1.speedY = 6;
     }
   }
 
+  //acts on keyup
   function handleKeyUp(event) {
     if (event.which === KEY.UP || event.which === KEY.DOWN) {
       paddle2.speedY = 0;
-    } else if (event.which === KEY.W || event.which === KEY.S) {
+    }
+    if (event.which === KEY.W || event.which === KEY.S) {
       paddle1.speedY = 0;
     }
   }
 
   // used paramiters for reuse
 function wallCollision(gameItem, gameId) {
-  // Get the dimensions of the board
-  const boardWidth = $("#board").width();
-  const boardHeight = $("#board").height();
-
-  // Calculate the boundaries of the board
-  var leftWall = 0;
-  var topWall = 0;
-  var rightWall = boardWidth - $(gameId).outerWidth(); 
-  var bottomWall = boardHeight - $(gameId).outerHeight();
-
-  // Check if the walker is about to move beyond the boundaries
-  if (gameItem.x < leftWall) {
-    gameItem.x = leftWall;
-  }
-  if (gameItem.x > rightWall) {
-    gameItem.x = rightWall;
-  }
+// Calculate the boundaries of the board
+var topWall = 0;
+var bottomWall = boardHeight - $(gameId).outerHeight();
+  // Check if the game item is about to move beyond the boundaries
   if (gameItem.y < topWall) {
     gameItem.y = topWall;
   }
   if (gameItem.y > bottomWall) {
     gameItem.y = bottomWall;
+  }
+}
+
+function endBall(gameItem, gameId) {
+  var leftWall = 0;
+  var rightWall = boardWidth - $(gameId).outerWidth(); 
+
+  if (gameItem.x <= leftWall) {
+    player2Score += 1; 
+    $("#scoreP2").text(player2Score);
+    startBall();
+  }
+  if (gameItem.x > rightWall) {
+    player1Score += 1; 
+    $("#scoreP1").text(player1Score);
+    startBall(); 
   }
 }
   
