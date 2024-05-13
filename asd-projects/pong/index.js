@@ -53,6 +53,7 @@ var paddle2 = createItem("#rightPaddle", 0, 0);
 var ball = createItem("#gameItem", 0, 0);
 var player1Score = 0;
 var player2Score = 0;
+
   // one-time setup
   let interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
   $(document).on('keydown', handleKeyDown);                           // change 'eventType' to the type of event you want to handle
@@ -74,6 +75,9 @@ var player2Score = 0;
     wallCollision(paddle2, "#rightPaddle");
     moveBall(ball);
     endBall(ball, "#gameItem");
+    paddleCollision(ball, paddle1);
+    paddleCollision(ball, paddle2);
+    endplayer();
   }
   
   /* 
@@ -87,11 +91,21 @@ var player2Score = 0;
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
 
+function endplayer() {
+  if (player1Score === 10){
+    alert("Player 1 wins!");
+    endgame();
+  }
+  if (player2Score === 10){
+    alert("Player 2 wins!");
+    endgame();
+  }
+}
 
   function startBall() {
     var randomNum = (Math.random() * 3 + 2) * (Math.random() > 0.5 ? -1 : 1);
-    ball.x = 260;
-    ball.y = 260;
+    ball.x = 300;
+    ball.y = 200;
     ball.speedX = randomNum;
     ball.speedY = randomNum;
   }
@@ -104,8 +118,18 @@ var player2Score = 0;
     }
 }
 
-function paddleCollision(gameItem, paddle, gameId) {
-
+function paddleCollision(ball, paddle) {
+  if (
+    ball.x + ball.width > paddle.x && 
+    ball.x < paddle.x + paddle.width && 
+    ball.y + ball.height > paddle.y && 
+    ball.y < paddle.y + paddle.height 
+  ) {
+    // Collision detected
+    ball.speedX = -ball.speedX; 
+    
+    ball.speedY += paddle.speedY / 2; 
+  }
 }
 
 
